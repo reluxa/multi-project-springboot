@@ -1,8 +1,8 @@
 buildscript {
-   ext {
-	springBootVersion = '1.5.8.RELEASE'
-	springCloudVersion = 'Brixton.RELEASE'
-   }
+  ext {
+    springBootVersion = '1.5.8.RELEASE'
+    springCloudVersion = 'Brixton.RELEASE'
+  }
 
   repositories {
     mavenCentral()
@@ -16,13 +16,12 @@ buildscript {
 }
 
 ext {
-	springBootVersion = '1.5.8.RELEASE'
-	springCloudVersion = 'Brixton.RELEASE'
+  springBootVersion = '1.5.8.RELEASE'
+  springCloudVersion = 'Brixton.RELEASE'
 }
 
-
 allprojects {
-  group = 'se.codemonkey'
+  group = 'org.reluxa'
 }
 
 subprojects {
@@ -31,19 +30,15 @@ subprojects {
   }
 
   repositories {
-    jcenter()
     mavenCentral()
   }
 
   apply plugin: 'io.spring.dependency-management'
 
   dependencyManagement {
-	imports {
-		mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-	}
-   }
+    imports {
+      mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+      mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+  }
 }
-
-
-
