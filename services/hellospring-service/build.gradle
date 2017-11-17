@@ -5,5 +5,5 @@ bootRepackage {
 
 dependencies {
   compile project(':shared:common')
-  testCompile 'junit:junit:4.12'
+  testCompile 'junit:junit'
 }

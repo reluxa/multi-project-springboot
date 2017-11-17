@@ -18,6 +18,7 @@ buildscript {
 ext {
   springBootVersion = '1.5.8.RELEASE'
   springCloudVersion = 'Brixton.RELEASE'
+  junitVersion = '4.12'
 }
 
 allprojects {
@@ -25,7 +26,7 @@ allprojects {
 }
 
 subprojects {
-  if (name == 'services' || name == 'shared') {
+  if (name == 'services' || name == 'shared' || name == 'gradle-springboot-multi-project') {
     return
   }
 
@@ -36,9 +37,16 @@ subprojects {
   apply plugin: 'io.spring.dependency-management'
 
   dependencyManagement {
+
     imports {
       mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
       mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
+
+    dependencies {
+      dependency "junit:junit:${junitVersion}"
+    }
+
   }
+
 }
