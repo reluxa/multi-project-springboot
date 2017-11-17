@@ -1,0 +1,5 @@
+ext {
+  springBootVersion = '1.5.8.RELEASE'
+  springCloudVersion = 'Brixton.RELEASE'
+  junitVersion = '4.12'
+}

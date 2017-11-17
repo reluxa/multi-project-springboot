@@ -12,14 +12,10 @@ buildscript {
     classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     classpath("io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE")
   }
-
 }
 
-ext {
-  springBootVersion = '1.5.8.RELEASE'
-  springCloudVersion = 'Brixton.RELEASE'
-  junitVersion = '4.12'
-}
+
+apply from: 'dependency.versions'
 
 allprojects {
   group = 'org.reluxa'
@@ -46,7 +42,5 @@ subprojects {
     dependencies {
       dependency "junit:junit:${junitVersion}"
     }
-
   }
-
 }
