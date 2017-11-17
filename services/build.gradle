@@ -1,0 +1,11 @@
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'application'
+  apply plugin: 'org.springframework.boot'
+
+  dependencies {
+     compile('org.springframework.boot:spring-boot-starter-web')
+  }
+
+}
+

@@ -1,0 +1,6 @@
+// Applications
+include 'services:hellospring-service'
+include 'services:helloboot-service'
+
+// Shared
+include ':shared:common'

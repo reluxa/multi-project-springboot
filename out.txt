@@ -1,0 +1,63 @@
+Initialized native services in: C:\Users\reluxa\.gradle\native
+The client will now receive all logging from the daemon (pid: 1264). The daemon log file: C:\Users\reluxa\.gradle\daemon\4.3.1\daemon-1264.out.log
+Starting 18th build in daemon [uptime: 43 mins 32.396 secs, performance: 97%, no major garbage collections]
+Using 6 worker leases.
+Creating new cache for fileHashes, path C:\Store\gradle-springboot-multi-project\.gradle\4.3.1\fileHashes\fileHashes.bin, access org.gradle.cache.internal.DefaultCacheAccess@69b0a0bb
+Creating new cache for plugin-use-metadata, path C:\Users\reluxa\.gradle\caches\4.3.1\plugin-resolution\plugin-use-metadata.bin, access org.gradle.cache.internal.DefaultCacheAccess@1aad0a1b
+Creating new cache for client-status, path C:\Users\reluxa\.gradle\caches\4.3.1\plugin-resolution\client-status.bin, access org.gradle.cache.internal.DefaultCacheAccess@1aad0a1b
+Starting Build
+Settings evaluated using settings file 'C:\Store\gradle-springboot-multi-project\settings.gradle'.
+Projects loaded. Root project using build file 'C:\Store\gradle-springboot-multi-project\build.gradle'.
+Included projects: [root project 'gradle-springboot-multi-project', project ':services', project ':shared', project ':services:helloboot-service', project ':services:hellospring-service', project ':shared:common']
+Evaluating root project 'gradle-springboot-multi-project' using build file 'C:\Store\gradle-springboot-multi-project\build.gradle'.
+Compiling build file 'C:\Store\gradle-springboot-multi-project\build.gradle' using SubsetScriptTransformer.
+Creating new cache for metadata-1.1/results, path C:\Users\reluxa\.gradle\caches\transforms-1\metadata-1.1\results.bin, access org.gradle.cache.internal.DefaultCacheAccess@2e0ab612
+Creating new cache for metadata-2.31/module-metadata, path C:\Users\reluxa\.gradle\caches\modules-2\metadata-2.31\module-metadata.bin, access org.gradle.cache.internal.DefaultCacheAccess@4ff37805
+Creating new cache for metadata-2.31/artifact-at-repository, path C:\Users\reluxa\.gradle\caches\modules-2\metadata-2.31\artifact-at-repository.bin, access org.gradle.cache.internal.DefaultCacheAccess@4ff37805
+Compiling build file 'C:\Store\gradle-springboot-multi-project\build.gradle' using BuildScriptTransformer.
+Evaluating project ':services' using build file 'C:\Store\gradle-springboot-multi-project\services\build.gradle'.
+Applying dependency management to configuration 'archives' in project 'helloboot-service'
+Applying dependency management to configuration 'default' in project 'helloboot-service'
+Applying dependency management to configuration 'compile' in project 'helloboot-service'
+Applying dependency management to configuration 'implementation' in project 'helloboot-service'
+Applying dependency management to configuration 'runtime' in project 'helloboot-service'
+Applying dependency management to configuration 'compileOnly' in project 'helloboot-service'
+Applying dependency management to configuration 'compileClasspath' in project 'helloboot-service'
+Applying dependency management to configuration 'runtimeOnly' in project 'helloboot-service'
+Applying dependency management to configuration 'runtimeClasspath' in project 'helloboot-service'
+Applying dependency management to configuration 'testCompile' in project 'helloboot-service'
+Applying dependency management to configuration 'testImplementation' in project 'helloboot-service'
+Applying dependency management to configuration 'testRuntime' in project 'helloboot-service'
+Applying dependency management to configuration 'testCompileOnly' in project 'helloboot-service'
+Applying dependency management to configuration 'testCompileClasspath' in project 'helloboot-service'
+Applying dependency management to configuration 'testRuntimeOnly' in project 'helloboot-service'
+Applying dependency management to configuration 'testRuntimeClasspath' in project 'helloboot-service'
+Applying dependency management to configuration 'apiElements' in project 'helloboot-service'
+Applying dependency management to configuration 'runtimeElements' in project 'helloboot-service'
+Applying dependency management to configuration 'archives' in project 'hellospring-service'
+Applying dependency management to configuration 'default' in project 'hellospring-service'
+Applying dependency management to configuration 'compile' in project 'hellospring-service'
+Applying dependency management to configuration 'implementation' in project 'hellospring-service'
+Applying dependency management to configuration 'runtime' in project 'hellospring-service'
+Applying dependency management to configuration 'compileOnly' in project 'hellospring-service'
+Applying dependency management to configuration 'compileClasspath' in project 'hellospring-service'
+Applying dependency management to configuration 'runtimeOnly' in project 'hellospring-service'
+Applying dependency management to configuration 'runtimeClasspath' in project 'hellospring-service'
+Applying dependency management to configuration 'testCompile' in project 'hellospring-service'
+Applying dependency management to configuration 'testImplementation' in project 'hellospring-service'
+Applying dependency management to configuration 'testRuntime' in project 'hellospring-service'
+Applying dependency management to configuration 'testCompileOnly' in project 'hellospring-service'
+Applying dependency management to configuration 'testCompileClasspath' in project 'hellospring-service'
+Applying dependency management to configuration 'testRuntimeOnly' in project 'hellospring-service'
+Applying dependency management to configuration 'testRuntimeClasspath' in project 'hellospring-service'
+Applying dependency management to configuration 'apiElements' in project 'hellospring-service'
+Applying dependency management to configuration 'runtimeElements' in project 'hellospring-service'
+Evaluating project ':shared' using build file 'C:\Store\gradle-springboot-multi-project\shared\build.gradle'.
+Compiling build file 'C:\Store\gradle-springboot-multi-project\shared\build.gradle' using SubsetScriptTransformer.
+Compiling build file 'C:\Store\gradle-springboot-multi-project\shared\build.gradle' using BuildScriptTransformer.
+Evaluating project ':services:helloboot-service' using build file 'C:\Store\gradle-springboot-multi-project\services\helloboot-service\build.gradle'.
+Configuring agent
+Evaluating project ':services:hellospring-service' using build file 'C:\Store\gradle-springboot-multi-project\services\hellospring-service\build.gradle'.
+Configuring agent
+Evaluating project ':shared:common' using build file 'C:\Store\gradle-springboot-multi-project\shared\common\build.gradle'.
+Compiling build file 'C:\Store\gradle-springboot-multi-project\shared\common\build.gradle' using BuildScriptTransformer.

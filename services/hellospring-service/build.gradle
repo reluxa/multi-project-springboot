@@ -1,0 +1,9 @@
+bootRepackage {
+   mainClassName = "se.codemonkey.App"
+   version = "1.0.1"
+}
+
+dependencies {
+  compile project(':shared:common')
+  testCompile 'junit:junit:4.12'
+}
