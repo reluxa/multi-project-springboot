@@ -53,6 +53,7 @@ public class Runner {
         thread.start();
     }
 
+    @SuppressWarnings("unchecked")
     private static Runnable create(Class mainClass, ClassLoader cl) {
         return () -> {
             try {
@@ -70,7 +71,7 @@ public class Runner {
         try {
             Class<?> tomcatURLStreamHandlerFactoryClass = cl.loadClass("org.apache.catalina.webresources.TomcatURLStreamHandlerFactory");
             Method disable = tomcatURLStreamHandlerFactoryClass.getMethod("disable");
-            disable.invoke(null, null);
+            disable.invoke(null);
         } catch (Exception e) {
             //e.printStackTrace();
         }

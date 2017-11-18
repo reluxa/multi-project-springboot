@@ -6,12 +6,12 @@ task run(type: JavaExec) {
     workingDir = project.rootProject.projectDir
 }
 
-
 project.gradle.projectsEvaluated {
-    run.dependsOn project(":services:helloboot-service").tasks.distZip
-    run.dependsOn project(":services:hellospring-service").tasks.distZip
+    project(":services").getSubprojects().each { p ->
+            println "Adding dependency to " + p.name;
+            run.dependsOn p.tasks.distZip
+    }
 }
-
 
 configure(run) {
     group = 'application'
