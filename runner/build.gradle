@@ -1,0 +1,12 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+mainClassName = "org.reluxa.Runner"
+
+dependencies {
+    compile ('org.springframework.boot:spring-boot')
+
+    runtime project(':services:helloboot-service')
+    runtime project(':services:hellospring-service')
+}

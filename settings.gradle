@@ -4,3 +4,6 @@ include ':services:helloboot-service'
 
 // Shared
 include ':shared:common'
+
+// Shared
+include ':runner'

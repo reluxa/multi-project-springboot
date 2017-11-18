@@ -16,6 +16,8 @@ buildscript {
 
 
 apply from: 'dependency.versions'
+apply plugin: 'idea'
+
 
 allprojects {
   group = 'org.reluxa'

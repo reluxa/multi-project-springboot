@@ -1,5 +1,5 @@
 bootRepackage {
-   mainClassName = "se.codemonkey.App"
+   mainClassName = "App"
    version = "1.0.1"
 }
 

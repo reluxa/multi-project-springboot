@@ -1,4 +1,4 @@
-package se.codemonkey;
+package org.reluxa.helloboot;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.web.bind.annotation.*;

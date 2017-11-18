@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: hello-spring
+  jmx:
+    enabled: true
+    defaultDomain: hello-spring

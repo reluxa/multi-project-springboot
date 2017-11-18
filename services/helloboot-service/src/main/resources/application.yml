@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: hello-boot
+  jmx:
+    enabled: true
+    defaultDomain: hello-boot
