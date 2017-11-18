@@ -5,5 +5,5 @@ jdk:
   oraclejdk8
 script:
   - ./gradlew clean build
-notifi	cations:
+notifications:
   email: false

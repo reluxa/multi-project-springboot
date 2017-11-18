@@ -1,17 +1,17 @@
 buildscript {
-  ext {
-    springBootVersion = '1.5.8.RELEASE'
-    springCloudVersion = 'Brixton.RELEASE'
-  }
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+        springCloudVersion = 'Brixton.RELEASE'
+    }
 
-  repositories {
-    mavenCentral()
-  }
+    repositories {
+        mavenCentral()
+    }
 
-  dependencies {
-    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    classpath("io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE")
-  }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE")
+    }
 }
 
 
@@ -20,29 +20,31 @@ apply plugin: 'idea'
 
 
 allprojects {
-  group = 'org.reluxa'
+    group = 'org.reluxa'
 }
 
 subprojects {
-  if (name == 'services' || name == 'shared' || name == 'gradle-springboot-multi-project') {
-    return
-  }
-
-  repositories {
-    mavenCentral()
-  }
-
-  apply plugin: 'io.spring.dependency-management'
-
-  dependencyManagement {
-
-    imports {
-      mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
-      mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    if (name == 'services' || name == 'shared' || name == 'gradle-springboot-multi-project') {
+        return
     }
 
-    dependencies {
-      dependency "junit:junit:${junitVersion}"
+    repositories {
+        mavenCentral()
     }
-  }
+
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencyManagement {
+
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+
+        dependencies {
+            dependency "junit:junit:${junitVersion}"
+            dependency "net.lingala.zip4j:zip4j:${zip4j}"
+            dependency "commons-io:commons-io:${commonsIo}"
+        }
+    }
 }

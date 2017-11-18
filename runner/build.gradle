@@ -1,12 +1,25 @@
 apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'org.springframework.boot'
 
-mainClassName = "org.reluxa.Runner"
+task run(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'org.reluxa.Runner'
+    workingDir = project.rootProject.projectDir
+}
+
+
+project.gradle.projectsEvaluated {
+    run.dependsOn project(":services:helloboot-service").tasks.distZip
+    run.dependsOn project(":services:hellospring-service").tasks.distZip
+}
+
+
+configure(run) {
+    group = 'application'
+    description = 'Running the Runner'
+}
 
 dependencies {
-    compile ('org.springframework.boot:spring-boot')
-
-    runtime project(':services:helloboot-service')
-    runtime project(':services:hellospring-service')
+    //compile ('org.springframework.boot:spring-boot')
+    compile 'net.lingala.zip4j:zip4j'
+    compile 'commons-io:commons-io'
 }

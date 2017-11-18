@@ -1,4 +1,4 @@
-mainClassName = "se.codemonkey.App"
+mainClassName = "org.reluxa.helloboot.App"
 version = "1.0.1"
 
 dependencies {
