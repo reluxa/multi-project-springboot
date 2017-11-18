@@ -1,7 +1,9 @@
+dist: trusty
+sudo: false
 language: java
 jdk:
   oraclejdk8
 script:
-  - gradlew clean build
-notifications:
+  - ./gradlew clean build
+notifi	cations:
   email: false
