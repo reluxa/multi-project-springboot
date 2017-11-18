@@ -1,6 +1,7 @@
-- Add dependency management
-- Add MultiRunner
 - Add Example infra service
 - Add jenkins support
 - Add deploy support
+- Add versioning
+- Add integration test
+- Add frontend
 
