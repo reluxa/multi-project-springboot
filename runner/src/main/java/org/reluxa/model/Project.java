@@ -11,6 +11,10 @@ import java.util.Set;
 
 public class Project {
 
+    public static final Set<String> BLACKLIST = new HashSet<>(Arrays.asList(
+  //          "logback", "slf4j", "spring-boot-starter-logging"
+    ));
+
     public final String applicationJarLocation;
     public final String classPathString;
     public final String mainClassName;
@@ -29,6 +33,11 @@ public class Project {
         Set<String> classPathElements = classPathElements();
         classPathElements.removeAll(parent.jarLocations);
         classPathElements.add(applicationJarLocation);
+
+        BLACKLIST.stream().forEach(black -> {
+            classPathElements.removeIf(e-> e.contains(black));
+        });
+
         return new RunnerURLClassloader(classPathElements, parent);
     }
 

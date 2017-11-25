@@ -9,9 +9,9 @@ task run(type: JavaExec) {
 
 project.gradle.projectsEvaluated {
     project(":services").getSubprojects().each { p ->
-            println "Adding dependency to " + p.name;
-            run.dependsOn p.tasks.jar
-            run.dependsOn project.tasks.printdep
+        println "Adding dependency to " + p.name;
+        run.dependsOn p.tasks.jar
+        run.dependsOn project.tasks.printdep
     }
 }
 
@@ -35,9 +35,9 @@ task printdep {
         deps.createNewFile();
         deps.write("");
         project(":services").getSubprojects().each { p ->
-            deps.append(p.libsDir.getAbsolutePath()+ File.separator + p.tasks.jar.archiveName + "|"
-                        + p.mainClassName + "|"
-                        + p.configurations.runtime.asPath + "\n");
+            deps.append(p.libsDir.getAbsolutePath() + File.separator + p.tasks.jar.archiveName + "|"
+                    + p.mainClassName + "|"
+                    + p.configurations.runtime.asPath + "\n");
         }
     }
 }

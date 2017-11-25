@@ -14,8 +14,9 @@ import java.util.stream.Collectors;
 public class ProjectDependencies {
 
     public final List<Project> projectList;
+
     public static final Set<String> BLACKLIST = new HashSet<>(Arrays.asList(
-             //"logback", "slf4j", "spring-boot-starter-logging"
+//             "logback", "slf4j", "spring-boot-starter-logging"
     ));
 
     public ProjectDependencies(String projectDependenciesFileLocation) throws IOException {
@@ -34,7 +35,7 @@ public class ProjectDependencies {
         Set<String> reduced = projectList.stream()
                 .map(Project::classPathElements)
                 .reduce(projectList.get(0).classPathElements(), (a, b) -> {
-                    a.addAll(b);
+                    a.retainAll(b);
                     return a;
                 });
         BLACKLIST.stream().forEach(black -> {
