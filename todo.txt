@@ -1,7 +1,8 @@
-- Add Example infra service
-- Add jenkins support
-- Add deploy support
-- Add versioning
-- Add integration test
+- Add Example infra service (kafka, postgres)
+- Add jenkins build support
+- Add support for releasing artifacts                                   
+- Add deploy support to artifactory
+- Add integration tests
 - Add frontend
+- Fix logger
 

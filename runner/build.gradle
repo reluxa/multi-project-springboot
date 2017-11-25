@@ -4,12 +4,14 @@ task run(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'org.reluxa.Runner'
     workingDir = project.rootProject.projectDir
+    args = [project.buildDir.getAbsolutePath() + "project.depenendencies"];
 }
 
 project.gradle.projectsEvaluated {
     project(":services").getSubprojects().each { p ->
             println "Adding dependency to " + p.name;
-            run.dependsOn p.tasks.distZip
+            run.dependsOn p.tasks.jar
+            run.dependsOn project.tasks.printdep
     }
 }
 
@@ -21,4 +23,21 @@ configure(run) {
 dependencies {
     compile 'net.lingala.zip4j:zip4j'
     compile 'commons-io:commons-io'
+}
+
+/*
+Collects dependencies into project.depenendencies in the format of
+    <path to service thin jar file name>|<main class name>|<classpath of service>
+ */
+task printdep {
+    doLast {
+        def deps = new File(project.buildDir.getAbsolutePath() + "project.depenendencies");
+        deps.createNewFile();
+        deps.write("");
+        project(":services").getSubprojects().each { p ->
+            deps.append(p.libsDir.getAbsolutePath()+ File.separator + p.tasks.jar.archiveName + "|"
+                        + p.mainClassName + "|"
+                        + p.configurations.runtime.asPath + "\n");
+        }
+    }
 }

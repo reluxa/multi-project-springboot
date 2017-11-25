@@ -1,5 +1,5 @@
 bootRepackage {
-   mainClassName = "App"
+   mainClassName = "org.reluxa.hellospring.App"
    version = "1.0.1"
 }
 
