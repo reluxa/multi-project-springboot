@@ -1,3 +1,6 @@
+// Infrastructure
+include ':infra:service-registry'
+
 // Applications
 include ':services:hellospring-service'
 include ':services:helloboot-service'

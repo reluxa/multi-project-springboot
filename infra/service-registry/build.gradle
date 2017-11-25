@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+bootRepackage {
+    mainClassName = "org.reluxa.serviceregistry.ServiceRegistry"
+    version = "1.0.1"
+}
+
+dependencies {
+    compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
+    compile project(':shared:common')
+    testCompile 'junit:junit'
+}
+

@@ -1,8 +1,5 @@
 buildscript {
-    ext {
-        springBootVersion = '1.5.8.RELEASE'
-        springCloudVersion = 'Brixton.RELEASE'
-    }
+    apply from: 'dependency.versions'
 
     repositories {
         mavenCentral()
@@ -14,17 +11,15 @@ buildscript {
     }
 }
 
-
 apply from: 'dependency.versions'
 apply plugin: 'idea'
-
 
 allprojects {
     group = 'org.reluxa'
 }
 
 subprojects {
-    if (name == 'services' || name == 'shared' || name == 'gradle-springboot-multi-project') {
+    if (name == 'services' || name == 'shared' || name == 'gradle-springboot-multi-project' || name == "infra") {
         return
     }
 
