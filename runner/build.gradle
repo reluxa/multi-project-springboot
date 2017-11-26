@@ -1,28 +1,22 @@
 apply plugin: 'java'
 
-task run(type: JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath
-    main = 'org.reluxa.Runner'
-    workingDir = project.rootProject.projectDir
-    args = [project.buildDir.getAbsolutePath() + "project.depenendencies"];
+def getPriority(Project myProject) {
+    return myProject.hasProperty("priority") ? myProject.priority : 10
+}
+
+def getAllSubprojects() {
+    def projects = new HashSet();
+    projects.addAll(project(":infra").getSubprojects());
+    projects.addAll(project(":services").getSubprojects());
+    return projects;
 }
 
 project.gradle.projectsEvaluated {
-    project(":infra").getSubprojects().each { p ->
-        println "Adding dependency to " + p.name;
+    getAllSubprojects().each { p ->
+        //println "Adding dependency to " + p.name;
         run.dependsOn p.tasks.jar
         run.dependsOn project.tasks.printdep
     }
-    project(":services").getSubprojects().each { p ->
-        println "Adding dependency to " + p.name;
-        run.dependsOn p.tasks.jar
-        run.dependsOn project.tasks.printdep
-    }
-}
-
-configure(run) {
-    group = 'application'
-    description = 'Running the Runner'
 }
 
 dependencies {
@@ -31,9 +25,11 @@ dependencies {
     compile 'com.google.guava:guava'
 }
 
-
-def getPriority(Project myProject) {
-    return myProject.hasProperty("priority") ? myProject.priority : 10
+task run(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'org.reluxa.Runner'
+    workingDir = project.rootProject.projectDir
+    args = [project.buildDir.getAbsolutePath() + "project.depenendencies"];
 }
 
 /*
@@ -45,16 +41,16 @@ task printdep {
         def deps = new File(project.buildDir.getAbsolutePath() + "project.depenendencies");
         deps.createNewFile();
         deps.write("");
-
-        def projects = new HashSet();
-        projects.addAll(project(":infra").getSubprojects());
-        projects.addAll(project(":services").getSubprojects());
-
-        projects.each { p ->
+        getAllSubprojects().each { p ->
             deps.append(p.libsDir.getAbsolutePath() + File.separator + p.tasks.jar.archiveName + "|"
                     + p.mainClassName + "|"
                     + getPriority(p) + "|"
                     + p.configurations.runtime.asPath + "\n");
         }
     }
+}
+
+configure(run) {
+    group = 'application'
+    description = 'Running the Runner'
 }

@@ -4,5 +4,3 @@
 - Add deploy support to artifactory
 - Add integration tests
 - Add frontend
-- Fix logger
-
