@@ -7,3 +7,8 @@ spring:
 endpoints:
   jmx:
     domain: hello-boot
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9999/eureka/

@@ -9,3 +9,9 @@ endpoints:
     domain: hello-spring
 server:
   port: 8081
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9999/eureka/

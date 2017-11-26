@@ -1,9 +1,8 @@
-bootRepackage {
-   mainClassName = "org.reluxa.hellospring.App"
-   version = "1.0.1"
-}
+mainClassName = "org.reluxa.hellospring.App"
+version = "1.0.1"
 
 dependencies {
-  compile project(':shared:common')
-  testCompile 'junit:junit'
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
+    compile project(':shared:common')
+    testCompile 'junit:junit'
 }

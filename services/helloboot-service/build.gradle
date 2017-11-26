@@ -2,6 +2,7 @@ mainClassName = "org.reluxa.helloboot.App"
 version = "1.0.1"
 
 dependencies {
-  compile 'org.springframework.cloud:spring-cloud-starter-config'
-  testCompile 'junit:junit'
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
+    compile 'org.springframework.cloud:spring-cloud-starter-config'
+    testCompile 'junit:junit'
 }
