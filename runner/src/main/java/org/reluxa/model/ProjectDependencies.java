@@ -25,8 +25,9 @@ public class ProjectDependencies {
                     String[] depItem = l.split("\\|");
                     String jarFileName = depItem[0];
                     String mainClassName = depItem[1];
-                    String classPath = depItem[2];
-                    return new Project(jarFileName, classPath, mainClassName);
+                    int priority = Integer.parseInt(depItem[2]);
+                    String classPath = depItem[3];
+                    return new Project(jarFileName, classPath, mainClassName, priority);
                 }
         ).collect(Collectors.toList());
     }
@@ -35,7 +36,8 @@ public class ProjectDependencies {
         Set<String> reduced = projectList.stream()
                 .map(Project::classPathElements)
                 .reduce(projectList.get(0).classPathElements(), (a, b) -> {
-                    a.retainAll(b);
+                    //a.retainAll(b);
+                    a.addAll(b);
                     return a;
                 });
         BLACKLIST.stream().forEach(black -> {

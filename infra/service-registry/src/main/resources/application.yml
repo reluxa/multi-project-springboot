@@ -4,6 +4,9 @@ spring:
   jmx:
     enabled: true
     default-domain: service-registry
+endpoints:
+  jmx:
+    domain: service-registry
 
 eureka:
   client:

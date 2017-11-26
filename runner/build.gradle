@@ -8,6 +8,11 @@ task run(type: JavaExec) {
 }
 
 project.gradle.projectsEvaluated {
+    project(":infra").getSubprojects().each { p ->
+        println "Adding dependency to " + p.name;
+        run.dependsOn p.tasks.jar
+        run.dependsOn project.tasks.printdep
+    }
     project(":services").getSubprojects().each { p ->
         println "Adding dependency to " + p.name;
         run.dependsOn p.tasks.jar
@@ -21,8 +26,14 @@ configure(run) {
 }
 
 dependencies {
-    compile 'net.lingala.zip4j:zip4j'
+    //compile 'org.springframework.boot:spring-boot-starter-logging'
     compile 'commons-io:commons-io'
+    compile 'com.google.guava:guava'
+}
+
+
+def getPriority(Project myProject) {
+    return myProject.hasProperty("priority") ? myProject.priority : 10
 }
 
 /*
@@ -34,9 +45,15 @@ task printdep {
         def deps = new File(project.buildDir.getAbsolutePath() + "project.depenendencies");
         deps.createNewFile();
         deps.write("");
-        project(":services").getSubprojects().each { p ->
+
+        def projects = new HashSet();
+        projects.addAll(project(":infra").getSubprojects());
+        projects.addAll(project(":services").getSubprojects());
+
+        projects.each { p ->
             deps.append(p.libsDir.getAbsolutePath() + File.separator + p.tasks.jar.archiveName + "|"
                     + p.mainClassName + "|"
+                    + getPriority(p) + "|"
                     + p.configurations.runtime.asPath + "\n");
         }
     }

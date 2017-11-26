@@ -40,6 +40,7 @@ subprojects {
             dependency "junit:junit:${junitVersion}"
             dependency "net.lingala.zip4j:zip4j:${zip4j}"
             dependency "commons-io:commons-io:${commonsIo}"
+            dependency "com.google.guava:guava:${guava}"
         }
     }
 }

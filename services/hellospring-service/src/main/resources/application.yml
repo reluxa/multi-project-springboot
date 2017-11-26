@@ -4,5 +4,8 @@ spring:
   jmx:
     enabled: true
     defaultDomain: hello-spring
+endpoints:
+  jmx:
+    domain: hello-spring
 server:
   port: 8081

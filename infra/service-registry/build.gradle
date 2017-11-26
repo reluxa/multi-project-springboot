@@ -13,3 +13,6 @@ dependencies {
     testCompile 'junit:junit'
 }
 
+ext {
+    priority = 5
+}

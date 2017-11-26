@@ -4,3 +4,6 @@ spring:
   jmx:
     enabled: true
     defaultDomain: hello-boot
+endpoints:
+  jmx:
+    domain: hello-boot

@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.CountDownLatch;
 
 public class Project {
 
@@ -18,11 +19,13 @@ public class Project {
     public final String applicationJarLocation;
     public final String classPathString;
     public final String mainClassName;
+    public final int priority;
 
-    public Project(String applicationJarLocation, String classPathString, String mainClassName) {
+    public Project(String applicationJarLocation, String classPathString, String mainClassName, int priority) {
         this.applicationJarLocation = applicationJarLocation;
         this.classPathString = classPathString;
         this.mainClassName = mainClassName;
+        this.priority = priority;
     }
 
     public Set<String> classPathElements() {
@@ -42,17 +45,19 @@ public class Project {
     }
 
     @SuppressWarnings("unchecked")
-    public Runnable create(RunnerURLClassloader parent) {
+    public Runnable create(RunnerURLClassloader parent, CountDownLatch countDownLatch) {
         return () -> {
             try {
                 RunnerURLClassloader classLoader = getClassLoader(parent);
-                classLoader.jarLocations.forEach( loc -> System.out.println(mainClassName + ": " + loc));
+                classLoader.jarLocations.forEach( loc -> System.out.println("\t Added to classloader of :" + mainClassName + ": " + loc));
                 Thread.currentThread().setContextClassLoader(classLoader.urlClassLoader);
                 Class<?> mainClass = classLoader.urlClassLoader.loadClass(mainClassName);
                 disableTomactUrlStreamHandlerFactory(classLoader.urlClassLoader);
                 Method main = mainClass.getMethod("main", String[].class);
                 String[] params = new String[]{};
-                main.invoke(null, (Object)params);
+                main.invoke(null, (Object) params);
+                System.err.println("\t" + mainClassName + " started");
+                countDownLatch.countDown();
             } catch (InvocationTargetException | IllegalAccessException | NoSuchMethodException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
