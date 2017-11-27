@@ -1,5 +1,7 @@
 // Infrastructure
 include ':infra:service-registry'
+include ':infra:config-server'
+
 
 // Applications
 include ':services:hellospring-service'

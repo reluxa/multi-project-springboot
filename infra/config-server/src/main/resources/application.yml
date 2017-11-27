@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: native
+  application:
+    name: config-server
+  jmx:
+    enabled: true
+    default-domain: config-server
+  cloud:
+    config:
+      server:
+        native:
+          serach-locations: file:/C:/store/gradle-springboot-multi-project/configuration
+
+endpoints:
+  jmx:
+    domain: config-server
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9999/eureka/
+
+server:
+  port: 8888

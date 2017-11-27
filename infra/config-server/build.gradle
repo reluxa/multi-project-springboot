@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+bootRepackage {
+    mainClassName = "org.reluxa.configserver.App"
+    version = "1.0.1"
+}
+
+dependencies {
+    compile('org.springframework.cloud:spring-cloud-config-server')
+    compile project(':shared:common')
+    testCompile 'junit:junit'
+}
+
+ext {
+    priority = 5
+}
